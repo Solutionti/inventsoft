@@ -34,7 +34,7 @@ $route["cerrarsesion"] = "login/cerrarsesion";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
 
 //USUARIOS
-$route["administacion/crearusuario"] = "administrador/recursoshumanos/crearusuarios";
+$route["administracion/crearusuario"] = "administrador/recursoshumanos/crearusuarios";
 $route["administracion/verusuarios"] = "administrador/recursoshumanos/getusuariosid";
 $route["administracion/actualizarusuario"] = "administrador/recursoshumanos/actualizarusuario";
 $route["administracion/eliminarusuario/(:num)"] = "administrador/recursoshumanos/eliminarusuario";
@@ -156,12 +156,14 @@ $route["administracion/tickets"] = "administrador/tickets";
 */
 $route["iniciar"] = "clientes";
 $route["clientes/laboratorio"] = "clientes/laboratorio";
+$route["clientes/prueba"] = "usuarios/crearUsuarios";
 $route["clientes/patologia"] = "clientes/patologia";
 $route["clientes/ecografias"] = "clientes/ecografias";
 $route["clientes/gastos"] = "clientes/gastos";
 $route["clientes/ventas"] = "clientes/ventas";
 $route["iniciarsesionclientes"] = "login/iniciarsesionclientes";
 $route["cerrarsesionclientes"] = "login/cerrarsesionclientes";
+
 
 
 

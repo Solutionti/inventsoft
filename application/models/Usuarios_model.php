@@ -11,7 +11,6 @@ class Usuarios_model extends CI_model {
     public function getAdministtradores() {
         $this->db->select("*");
         $this->db->from("usuarios");
-        $this->db->where("rol_usuario", "Administrador");
         $this->db->where("estado", "Activo");
         $result = $this->db->get();
         return $result;
@@ -76,7 +75,7 @@ class Usuarios_model extends CI_model {
             "email" => $data["email"],
             "nombre" => $data["nombre"],
             "apellido" => $data["apellido"],
-            "empresa" => "Salud madre y mujer",
+            "empresa" => "buen viaje",
             "telefono" => $data["telefono"],
             "hora" => date("h:i A"),
             "fecha" => date("Y-m-d"),
@@ -93,7 +92,7 @@ class Usuarios_model extends CI_model {
         $this->db->where("codigo_usuario", $id);
         $result = $this->db->get();
 
-        return $result->row();
+        return $result;
     }
 
     public function actualizarUsuario($data, $id) {

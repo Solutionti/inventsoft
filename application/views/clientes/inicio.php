@@ -169,6 +169,7 @@
             </div>
           </div>
         </div>
+        <?php $usuarios = $usuario->result()[0]; ?>
         <div class="col-md-9">
           <div class="card">
             <div class="card-header pb-0">
@@ -183,43 +184,38 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Usuario</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" value="<?php  echo $usuarios->usuario; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Correo electronico</label>
-                    <input class="form-control" type="email" value="">
+                    <input class="form-control" type="email" value="<?php  echo $usuarios->email; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Apellidos</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" value="<?php  echo $usuarios->apellido; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Nombres</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" value="<?php  echo $usuarios->nombre; ?>">
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Fecha de nacimiento</label>
-                    <input class="form-control" type="date" value="">
-                  </div>
-                </div>
+                
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Telefono</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" value="<?php  echo $usuarios->telefono; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Dirección</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" value="<?php  echo $usuarios->empresa; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">

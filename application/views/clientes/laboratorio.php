@@ -7,6 +7,7 @@
     <title>Buen Viaje - Usuarios</title>
     <!-- <link rel="icon" href="<?php echo base_url(); ?>public/img/theme/logo2.ico" type="image/ico" />  -->
     <link id="pagestyle" href="<?php echo base_url(); ?>public/css/argon-dashboard.css?v=2.0.2" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>public/css/overhang.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.css">
 	<link href="<?php echo base_url(); ?>public/fontawesome/css/brands.css" rel="stylesheet">
@@ -134,6 +135,7 @@
                    <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Usuario</th>
                    <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Correo</th>
                    <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Telefono</th>
+                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Rol usuario</th>
                    <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Estado</th>
                  </thead>
                  <tbody>
@@ -158,6 +160,7 @@
                 <td class="text-xs text-dark mb-0"><?php echo $usuarios->usuario; ?></td>
                 <td class="text-xs text-dark mb-0"><?php echo $usuarios->email; ?></td>
                 <td class="text-xs text-dark mb-0"><?php echo $usuarios->telefono; ?></td>
+                <td class="text-xs text-dark mb-0"><?php echo $usuarios->rol_usuario; ?></td>
                 <td class="text-xs text-success mb-0"><?php echo $usuarios->estado; ?></td>
               </tr>
                   <?php } ?>
@@ -197,7 +200,7 @@
               <select class="form-control" id="tp_usuario">
                 <option value="">Seleccione el tipo de usuario</option>
                 <option value="Administrador">Administrador</option>
-                <option value="Patologo">Vendedor</option>
+                <option value="Vendedor">Vendedor</option>
               </select>
         </div>
         <div class="form-group input-group-sm">
@@ -232,11 +235,18 @@
 </div>
 
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/core/popper.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/core/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/chartjs.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/argon-dashboard.min.js?v=2.0.2"></script>
+  <script src="<?php echo base_url(); ?>public/js/overhang.min.js"></script>
+  <script>
+    var baseurl = "<?php echo base_url();?>";
+  </script> 
+  <script src="<?php echo base_url(); ?>public/js/scripts/usuarios.js"></script>
 </body>
 </html>

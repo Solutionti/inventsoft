@@ -7,7 +7,6 @@ class Clientes extends CI_Controller {
 		parent::__construct();
 		$this->load->model("Patologia_model");
 		$this->load->model("Laboratorio_model");
-		$this->load->model("Lineatiempo_model");
 		$this->load->model("Inventarios_model");
 		$this->load->model("Usuarios_model");
 	}
@@ -17,8 +16,10 @@ class Clientes extends CI_Controller {
     }
 
 	public function inicio(){
-		
-		$this->load->view("clientes/inicio");
+		$id = $this->session->userdata("codigo");
+		$usuarios = $this->Usuarios_model->getUsuariosId($id);
+		$data = ["usuario" => $usuarios];
+		$this->load->view("clientes/inicio", $data);
 	}
 	
 	public function laboratorio() {
@@ -47,7 +48,11 @@ class Clientes extends CI_Controller {
 		$this->load->view("clientes/gastos");
 	  }
 
-	  public function ventas() {
+	public function ventas() {
 		$this->load->view("clientes/ventas");
-	  }
+	}
+
+	public function prueba() {
+		echo "hola";
+	}
 }
