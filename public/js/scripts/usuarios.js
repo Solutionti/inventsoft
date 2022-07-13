@@ -1,5 +1,5 @@
 $("#crearusuario").on("click", function () {
-    var url1 = baseurl + "clientes/prueba", 
+    var url1 = baseurl + "clientes/crearusuario", 
     apellido = $("#apellido").val(),
     nombre = $("#nombre").val(),
     tp_usuario = $("#tp_usuario").val(),
@@ -23,7 +23,7 @@ $("#crearusuario").on("click", function () {
         success: function () {
             $("body").overhang({
                 type: "success",
-                message: "Usuario se  ha creado correctamente"
+                message: "El usuario se  ha creado correctamente"
           });
           setTimeout(reloadPage, 2000);
         }

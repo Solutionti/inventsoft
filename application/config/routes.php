@@ -156,7 +156,11 @@ $route["administracion/tickets"] = "administrador/tickets";
 */
 $route["iniciar"] = "clientes";
 $route["clientes/laboratorio"] = "clientes/laboratorio";
-$route["clientes/prueba"] = "usuarios/crearUsuarios";
+//USUARIOS
+$route["clientes/crearusuario"] = "usuarios/crearusuarios";
+//GASTOS
+$route["clientes/creargasto"] = "gastos/creargasto";
+
 $route["clientes/patologia"] = "clientes/patologia";
 $route["clientes/ecografias"] = "clientes/ecografias";
 $route["clientes/gastos"] = "clientes/gastos";

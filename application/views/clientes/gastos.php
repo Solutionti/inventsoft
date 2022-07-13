@@ -7,6 +7,7 @@
     <title>Buen Viaje - Gastos</title>
     <!-- <link rel="icon" href="<?php echo base_url(); ?>public/img/theme/logo2.ico" type="image/ico" />  -->
     <link id="pagestyle" href="<?php echo base_url(); ?>public/css/argon-dashboard.css?v=2.0.2" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>public/css/overhang.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.css">
 	<link href="<?php echo base_url(); ?>public/fontawesome/css/brands.css" rel="stylesheet">
@@ -134,11 +135,21 @@
                    <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Categoria</th>
                    <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Descripcion</th>
                    <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Precio</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Descripción</th>
                    <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Usuario</th>
+                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Fecha</th>
                  </thead>
                  <tbody>
-                 
+                  <?php foreach($gasto->result() as $gastos) { ?>
+                    <tr>
+                      <td></td>
+                      <td class="text-xs text-dark mb-0" ><?php echo $gastos->codigo_gasto; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->categoria; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->descripcion; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->precio; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->usuario; ?></td>
+                      <td class="text-xs text-dark mb-0"><?php echo $gastos->fecha; ?></td>
+                    </tr>
+                  <?php }?>
                  </tbody>
                </table>
              </div>
@@ -158,12 +169,12 @@
       <div class="modal-body">
         <div class="form-group input-group-sm">
             <label>Categoria</label>
-            <select name="" id="" class="form-control">
+            <select id="categoria" class="form-control">
               <option value="">SELECCIONE</option>
-              <option value="">Gasto interno</option>
-              <option value="">Pago a proveedores</option>
-              <option value="">Pago por descuento</option>
-              <option value="">Gasto temporal</option>
+              <option value="Gasto interno">Gasto interno</option>
+              <option value="Pago proveedores">Pago a proveedores</option>
+              <option value="Pago descuento">Pago por descuento</option>
+              <option value="Gasto temporal">Gasto temporal</option>
             </select>
         </div>
         <div class="form-group input-group-sm">
@@ -172,26 +183,33 @@
         </div>
         <div class="form-group input-group-sm">
             <label>Precio</label>
-            <input type="number" class="form-control" id="correo">
+            <input type="number" class="form-control" id="precio">
         </div>
         <div class="form-group input-group-sm">
             <label>Descripciòn</label>
-            <textarea class="form-control"></textarea>
+            <textarea class="form-control" id="descripcion"></textarea>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="crearusuario">Guardar</button>
+        <button type="button" class="btn btn-primary" id="creargasto">Guardar</button>
       </div>
     </div>
   </div>
 </div>
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/core/popper.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/core/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/chartjs.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/argon-dashboard.min.js?v=2.0.2"></script>
+  <script src="<?php echo base_url(); ?>public/js/overhang.min.js"></script>
+  <script>
+    var baseurl = "<?php echo base_url();?>";
+  </script> 
+  <script src="<?php echo base_url(); ?>public/js/scripts/gastos.js"></script>
 </body>
 </html>

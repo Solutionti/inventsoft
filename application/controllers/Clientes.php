@@ -9,6 +9,7 @@ class Clientes extends CI_Controller {
 		$this->load->model("Laboratorio_model");
 		$this->load->model("Inventarios_model");
 		$this->load->model("Usuarios_model");
+		$this->load->model("Gastos_model");
 	}
 
     public function index() {
@@ -45,7 +46,9 @@ class Clientes extends CI_Controller {
 	}
 
 	public function gastos() {
-		$this->load->view("clientes/gastos");
+		$gastos = $this->Gastos_model->getGastos();
+		$data = ["gasto" => $gastos];
+		$this->load->view("clientes/gastos", $data);
 	  }
 
 	public function ventas() {

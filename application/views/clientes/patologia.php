@@ -177,7 +177,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Categoria</label>
-                    <select id="categoria" class="form-control form-control-sm">
+                    <select id="categoria_p" class="form-control form-control-sm">
                       <option value="">Seleccione una categoria</option>
                       <?php foreach($categoria->result() as $categorias) { ?>
                         <option value="<?php echo $categorias->codigo_categoria; ?>"><?php echo $categorias->nombre; ?></option>
@@ -188,19 +188,19 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Nombre</label>
-                    <input type="text" id="nombre" class="form-control form-control-sm">
+                    <input type="text" id="nombre_p" class="form-control form-control-sm">
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Codigo</label>
-                    <input type="number" id="codigo" class="form-control form-control-sm">
+                    <input type="number" id="codigo_p" class="form-control form-control-sm">
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Codigo de barras</label>
-                    <input type="number" id="codigo_barras" class="form-control form-control-sm">
+                    <input type="number" id="codigo_barras_p" class="form-control form-control-sm">
                 </div>
             </div>
         </div>
@@ -208,7 +208,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Unidad medida</label>
-                    <select id="medida" class="form-control form-control-sm">
+                    <select id="medida_p" class="form-control form-control-sm">
                         <option value="Caja">Caja</option>
                         <option value="Galones">Galones</option>
                         <option value="Gramos">Gramos</option>
@@ -227,19 +227,19 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label>Cantidad</label>
-                    <input type="number" id="cantidad" class="form-control form-control-sm">
+                    <input type="number" id="cantidad_p" class="form-control form-control-sm">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label>Precio por unidad</label>
-                    <input type="number" id="precio" class="form-control form-control-sm">
+                    <input type="number" id="precio_p" class="form-control form-control-sm">
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Moneda</label>
-                    <select id="moneda" class="form-control form-control-sm">
+                    <select id="moneda_p" class="form-control form-control-sm">
                         <option value="COP">Pesos ( COP )</option>
                     </select>
                 </div>
@@ -249,7 +249,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Descripcion</label>
-                    <textarea id="descripcion" class="form-control"></textarea>
+                    <textarea id="descripcion_p" class="form-control"></textarea>
                 </div>
             </div>
         </div>
