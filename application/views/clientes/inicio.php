@@ -151,10 +151,10 @@
                 </div>
               </div>
               <div class="text-center mt-4">
-                <h5>
+                <h5 class="font-weight-light" >
                   <?php echo $this->session->userdata("nombre"); ?><span class="font-weight-light"> <?php echo $this->session->userdata("apellido"); ?></span>
                 </h5>
-                <div class="h6 font-weight-300">
+                <div class="h6 font-weight-300 font-weight-light">
                   <i class="ni location_pin mr-2"></i>ultima sesion
                   <small><?php echo date("d-m-Y"); ?></small>
                 </div>
@@ -184,25 +184,25 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Usuario</label>
-                    <input class="form-control" type="text" value="<?php  echo $usuarios->usuario; ?>">
+                    <input class="form-control" type="text" value="<?php  echo $usuarios->usuario; ?>" readonly>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Correo electronico</label>
-                    <input class="form-control" type="email" value="<?php  echo $usuarios->email; ?>">
+                    <input class="form-control" type="email" value="<?php  echo $usuarios->email; ?>" readonly>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Apellidos</label>
-                    <input class="form-control" type="text" value="<?php  echo $usuarios->apellido; ?>">
+                    <input class="form-control" type="text" value="<?php  echo $usuarios->apellido; ?>" readonly>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Nombres</label>
-                    <input class="form-control" type="text" value="<?php  echo $usuarios->nombre; ?>">
+                    <input class="form-control" type="text" value="<?php  echo $usuarios->nombre; ?>" readonly>
                   </div>
                 </div>
                 
@@ -221,7 +221,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Estado</label>
-                    <input class="form-control" type="text" value="Activo">
+                    <input class="form-control" type="text" value="Activo" readonly>
                   </div>
                 </div>
               </div>

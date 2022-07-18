@@ -77,20 +77,20 @@
                   <div class="row mt-2">
                     <div class="col-md-5">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Producto">
+                        <input type="text" class="form-control" placeholder="Producto" readonly>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-text">$</span>
-                          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly>
                         </div> 
                       </div>
                     </div>
                     <div class="col-md-2">
                       <div class="form-group">
-                        <input type="number" class="form-control" min="0" max="50">
+                        <input type="number" class="form-control" min="0" max="50" readonly>
                       </div>
                     </div>
                     <div class="col-md-1">
@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-md-6">
                       <label>Total</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" readonly>
                     </div>
                   </div>
                   <div class="row mt-3">
@@ -133,9 +133,9 @@
                       <div class="z-index-1 position-relative">
                         <h5 class="text-white">Total Compra</h5>
                         <h1 class="text-white mt-2 mb-0">
-                        <small>$</small> 800.000</h1>
+                        <small>$</small>0</h1>
                         <h6 class="text-white">Total a devolver</h6>
-                        <h4 class="text-white">20.500</h4>
+                        <h4 class="text-white">0</h4>
                       </div>
                     </div>
                   <div class="position-relative mt-n5" style="height: 50px;">
@@ -160,13 +160,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Documento</label>
-                    <input type="text" class="form-control form-control-sm" value="FACTURA">
+                    <input type="text" class="form-control form-control-sm" value="FACTURA" readonly>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Tipo pago</label>
-                    <input type="text" class="form-control form-control-sm" value="CONTADO">
+                    <input type="text" class="form-control form-control-sm" value="CONTADO" readonly>
                   </div>
                 </div>
               </div>
@@ -174,13 +174,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Sede</label>
-                    <input type="text" class="form-control form-control-sm" value="Sede terminal">
+                    <input type="text" class="form-control form-control-sm" value="Sede terminal" readonly>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>N° de venta</label>
-                    <input type="text" class="form-control form-control-sm" value="001">
+                    <input type="text" class="form-control form-control-sm" value="001" readonly>
                   </div>
                 </div>
               </div>
@@ -199,7 +199,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Fecha</label>
-                    <input type="text" class="form-control form-control-sm" value="<?php echo date("d-m-Y"); ?>">
+                    <input type="text" class="form-control form-control-sm" value="<?php echo date("d-m-Y"); ?>" readonly>
                   </div>
                 </div>
               </div>
