@@ -123,29 +123,44 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0 h6">Gastos</p>
-                <button class="btn btn-primary btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
+                <button class="btn btn-success btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
               </div>
             </div>
             <div class="card-body">
              <div class="table-responsive">
                <table class="table table-responsive table-hover">
-                 <thead>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Opciones</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Codigo</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Categoria</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Descripcion</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Precio</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Usuario</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Fecha</th>
+                 <thead class="bg-default">
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Descripcion</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Precio</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Fecha</th>
                  </thead>
                  <tbody>
                   <?php foreach($gasto->result() as $gastos) { ?>
                     <tr>
-                      <td></td>
+                    <td>
+                <div class="row">
+                  <a 
+                    class="icon icon-shape icon-sm me-1 bg-gradient-danger shadow mx-3"
+                    href="<?php echo base_url(); ?>administracion/eliminarusuario/"
+                  >
+                    <i class="fas fa-times text-white opacity-10"></i>
+                  </a>
+                  <a 
+                    class="icon icon-shape icon-sm  bg-gradient-success shadow"
+                    onclick="verUsuarios();" 
+                  >
+                    <i class="fas fa-pen text-white opacity-10"></i>
+                  </a>
+                </div>
+                    </td>
                       <td class="text-xs text-dark mb-0" ><?php echo $gastos->codigo_gasto; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->categoria; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->descripcion; ?></td>
-                      <td class="text-xs text-dark mb-0"><?php echo $gastos->precio; ?></td>
+                      <td class="text-xs text-dark mb-0">$ <?php echo $gastos->precio; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->usuario; ?></td>
                       <td class="text-xs text-dark mb-0"><?php echo $gastos->fecha; ?></td>
                     </tr>
@@ -160,8 +175,8 @@
         <div class="modal fade" id="Agregarusuario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Gastos</h5>
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Gastos</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

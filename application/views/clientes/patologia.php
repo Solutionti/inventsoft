@@ -125,26 +125,42 @@
                 <p class="mb-0 h6">Inventarios</p>
                 <button class="btn btn-primary btn-xs ms-auto mx-2" data-bs-toggle="modal" href="#productos" role="button"> <i class="fas fa-shopping-basket"></i> Agregar Producto</button>
                 <button class="btn btn-primary btn-xs  mx-2" data-bs-toggle="modal" href="#consulta" role="button"> <i class="fas fa-search"></i> Consulta</button>
-                <button class="btn btn-primary btn-xs mx-2" data-bs-toggle="modal" href="#entrada" role="button"> <i class="fas fa-plus"></i> Entrada</button>
-                <button class="btn btn-primary btn-xs mx-2" data-bs-toggle="modal" href="#salida" role="button" > <i class="fas fa-minus"></i> Salida</button>
+                <button class="btn btn-success btn-xs mx-2" data-bs-toggle="modal" href="#entrada" role="button"> <i class="fas fa-plus"></i> Entrada</button>
+                <button class="btn btn-danger btn-xs mx-2" data-bs-toggle="modal" href="#salida" role="button" > <i class="fas fa-minus"></i> Salida</button>
               </div>
             </div>
             <div class="card-body">
              <div class="table-responsive">
                <table class="table table-responsive table-borderless table-hover" id="tabla-productos">
-                 <thead>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Opciones</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Codigo</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Nombre</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Categoria</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Valor</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Cantidad</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Stock</th>
+                 <thead class="bg-default ">
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Valor</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Cantidad</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Stock</th>
                  </thead>
                  <tbody>
                    <?php foreach($producto->result() as $productos) { ?>
                     <tr>
-                    <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"></td>
+                    
+                    <td>
+                <div class="row">
+                  <a 
+                    class="icon icon-shape icon-sm me-1 bg-gradient-danger shadow mx-3"
+                    href="<?php echo base_url(); ?>administracion/eliminarusuario/"
+                  >
+                    <i class="fas fa-times text-white opacity-10"></i>
+                  </a>
+                  <a 
+                    class="icon icon-shape icon-sm  bg-gradient-success shadow"
+                    onclick="verUsuarios();" 
+                  >
+                    <i class="fas fa-pen text-white opacity-10"></i>
+                  </a>
+                </div>
+                    </td>
                     <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->codigo; ?></td>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->nombre; ?></td>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->categorias; ?></td>
@@ -165,8 +181,8 @@
   <div class="modal fade" id="productos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-uppercase" id="exampleModalLabel">Agregar producto</h5>
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar producto</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -273,8 +289,8 @@
 <div class="modal fade" id="consulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-uppercase" id="exampleModalLabel">Consulta de kardex</h5>
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-uppercase text-white font-weight-bold" id="exampleModalLabel">Consulta de kardex</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -284,13 +300,15 @@
         <div class="row">
           <div class="col-md-12">
             <label>Seleccione la accion a buscar</label>
-            <select class="form-control form-control-sm">
+            <select class="form-control form-control-sm" id="opciones-inventario">
               <option value="">Seleccione una opción</option>
-              <option value="">Consulta de kardex</option>
-              <option value="">Consulta de inventario</option>
+              <option value="1">Consulta de kardex</option>
+              <option value="2">Consulta de inventario</option>
             </select>
           </div>
         </div>
+        <br>
+       <div class="movimientos-kardex" hidden>
         <div class="row mt-3">
           <div class="col-md-4">
             <div class="form-group">
@@ -333,6 +351,9 @@
             </div>
           </div>
         </div>
+       </div>
+       <br>
+       <div class="consulta-inventario" hidden>
         <div class="row">
           <div class="col-md-6">
             <label for="">Sección</label>
@@ -366,10 +387,9 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="guardar_productos">Guardar</button>
-      </div>
+     
     </div>
   </div>
 </div>
@@ -379,8 +399,8 @@
   <div class="modal fade" id="entrada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-uppercase" id="exampleModalLabel">Ingreso de productos a la cafeteria</h5>
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Ingreso de productos a la cafeteria</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -453,8 +473,8 @@
 <div class="modal fade" id="salida" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-uppercase" id="exampleModalLabel">Salida de productos de la cafeteria</h5>
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Salida de productos de la cafeteria</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

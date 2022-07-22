@@ -112,7 +112,7 @@
                   <div class="row mt-3">
                     <div class="table-responsive">
                       <table class="table table-stripped table-hover">
-                        <thead class="bg-success ">
+                        <thead class="bg-default ">
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nro</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Producto</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>

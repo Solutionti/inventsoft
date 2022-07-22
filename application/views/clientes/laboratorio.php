@@ -123,20 +123,20 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0 h6">Usuarios</p>
-                <button class="btn btn-primary btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
+                <button class="btn btn-success btn-xs ms-auto" data-bs-toggle="modal" href="#Agregarusuario" role="button"> <i class="fas fa-plus"></i> Agregar</button>
               </div>
             </div>
             <div class="card-body">
              <div class="table-responsive">
                <table class="table table-responsive table-hover">
-                 <thead>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Opciones</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Nombre</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Usuario</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Correo</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Telefono</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Rol usuario</th>
-                   <th class="text-uppercase text-dark text-xs font-weight-bolder opacity-12">Estado</th>
+                 <thead class="bg-default ">
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Usuario</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Correo</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Telefono</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Rol usuario</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Estado</th>
                  </thead>
                  <tbody>
                   <?php foreach($administrador->result() as $usuarios) { ?>
@@ -150,7 +150,7 @@
                     <i class="fas fa-times text-white opacity-10"></i>
                   </a>
                   <a 
-                    class="icon icon-shape icon-sm  bg-gradient-info shadow"
+                    class="icon icon-shape icon-sm  bg-gradient-success shadow"
                     onclick="verUsuarios(<?php echo $usuarios->codigo_usuario; ?>);" 
                   >
                     <i class="fas fa-pen text-white opacity-10"></i>
@@ -174,8 +174,8 @@
         <div class="modal fade" id="Agregarusuario" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Usuario</h5>
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-uppercase text-white" id="exampleModalLabel">Agregar Usuario</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -233,7 +233,6 @@
     </div>
   </div>
 </div>
-
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
