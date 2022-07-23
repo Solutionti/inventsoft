@@ -7,6 +7,7 @@
     <title>Buen Viaje - Ventas</title>
     <!-- <link rel="icon" href="<?php echo base_url(); ?>public/img/theme/logo2.ico" type="image/ico" />  -->
     <link id="pagestyle" href="<?php echo base_url(); ?>public/css/argon-dashboard.css?v=2.0.2" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>public/css/overhang.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.css">
 	<link href="<?php echo base_url(); ?>public/fontawesome/css/brands.css" rel="stylesheet">
@@ -70,21 +71,21 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Codigo de barras</label>
-                        <input type="text" class="form-control form-control-md">
+                        <input type="text" class="form-control form-control-md" id="codigo_barras">
                       </div>
                     </div>
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-5">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Producto" readonly>
+                        <input type="text" class="form-control" id="producto" placeholder="Producto" readonly>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-text">$</span>
-                          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" readonly>
+                          <input type="text" class="form-control" id="precio" aria-label="Amount (to the nearest dollar)" readonly>
                         </div> 
                       </div>
                     </div>
@@ -113,12 +114,14 @@
                     <div class="table-responsive">
                       <table class="table table-stripped table-hover">
                         <thead class="bg-default ">
-                          <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nro</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Producto</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Cantidad</th>
                           <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Total</th>
                         </thead>
+                        <tbody id="tabla-ventas">
+
+                        </tbody>
                       </table>
                     </div>
             
@@ -223,11 +226,18 @@
    </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/core/popper.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/core/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/plugins/chartjs.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/argon-dashboard.min.js?v=2.0.2"></script>
+  <script src="<?php echo base_url(); ?>public/js/overhang.min.js"></script>
+  <script>
+    var baseurl = "<?php echo base_url();?>";
+  </script>
+  <script src="<?php echo base_url(); ?>public/js/scripts/ventas.js"></script>
 </body>
 </html>

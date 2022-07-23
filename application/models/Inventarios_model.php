@@ -12,6 +12,7 @@ class Inventarios_model extends CI_model {
         "medida" => $data["medida"],
         "cantidad" => $data["cantidad"],
         "precio" => $data["precio"],
+        "costo_proveedor" => $data["precio_proveedor"],
         "moneda" => $data["moneda"],
         "descripcion" => $data["descripcion"],
         "stock" => 0,
@@ -41,7 +42,7 @@ class Inventarios_model extends CI_model {
         return $result->row();
     }
 
-    public function crearDocumentoKardexEntrada($data){
+    public function crearEntrada($data){
         $datos = [
             "id_producto" => $data["producto"],
             "tp_documento" => "NE",
@@ -59,7 +60,7 @@ class Inventarios_model extends CI_model {
         $this->db->insert("kardex", $datos);
     }
 
-    public function crearDocumentoKardexSalida($data){
+    public function crearSalida($data){
         $datos = [
             "id_producto" => $data["producto"],
             "tp_documento" => "FO",
@@ -125,6 +126,16 @@ class Inventarios_model extends CI_model {
         $result = $this->db->get();
 
         return $result;
+    }
+
+    public function getProductoVenta($codigo) {
+        $this->db->select("*");
+        $this->db->from("productos");
+        $this->db->where("codigo", $codigo);
+        $this->db->or_where("codigo_barras", $codigo);
+        $result = $this->db->get();
+
+        return $result->row();
     }
 
     

@@ -156,12 +156,23 @@ $route["administracion/tickets"] = "administrador/tickets";
 */
 $route["iniciar"] = "clientes";
 $route["clientes/laboratorio"] = "clientes/laboratorio";
+
 //USUARIOS
 $route["clientes/crearusuario"] = "usuarios/crearusuarios";
+
 //GASTOS
 $route["clientes/creargasto"] = "gastos/creargasto";
 
+//INVENTARIOS
 $route["clientes/patologia"] = "clientes/patologia";
+$route["clientes/crearproductos"] = "inventarios/createproductos";
+$route["clientes/traerstock/(:num)"] = "inventarios/getstock/$1";
+$route["clientes/crearentrada"] = "inventarios/crearentrada";
+$route["clientes/crearsalida"] = "inventarios/crearsalida";
+
+//VENTAS
+$route["clientes/getproductoventa"] = "ventas/getproductoventa";
+//
 $route["clientes/ecografias"] = "clientes/ecografias";
 $route["clientes/gastos"] = "clientes/gastos";
 $route["clientes/ventas"] = "clientes/ventas";

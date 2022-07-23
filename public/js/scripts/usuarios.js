@@ -21,9 +21,9 @@ $("#crearusuario").on("click", function () {
             password: password
         },
         success: function () {
-            $("body").overhang({
-                type: "success",
-                message: "El usuario se  ha creado correctamente"
+          $("body").overhang({
+            type: "success",
+            message: "El usuario se  ha creado correctamente"
           });
           setTimeout(reloadPage, 2000);
         }

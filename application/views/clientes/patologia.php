@@ -7,11 +7,11 @@
     <title>Buen Viaje - Inventarios</title>
     <!-- <link rel="icon" href="<?php echo base_url(); ?>public/img/theme/logo2.ico" type="image/ico" />  -->
     <link id="pagestyle" href="<?php echo base_url(); ?>public/css/argon-dashboard.css?v=2.0.2" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>public/css/overhang.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/fontawesome/css/fontawesome.css">
 	<link href="<?php echo base_url(); ?>public/fontawesome/css/brands.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>public/fontawesome/css/solid.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>public/css/datatable.css" rel="stylesheet">
 </head>
 <body class="g-sidenav-show bg-gray-100">
   <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://cdn.pixabay.com/photo/2020/10/01/17/11/store-5619201_960_720.jpg'); background-position-y: 50%; background-repeat: no-repeat; background-size: 100%">
@@ -134,11 +134,11 @@
                <table class="table table-responsive table-borderless table-hover" id="tabla-productos">
                  <thead class="bg-default ">
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Opciones</th>
+                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Imagen</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Codigo</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Nombre</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Categoria</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Valor</th>
-                   <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Cantidad</th>
                    <th class="text-uppercase text-white text-xs font-weight-bolder opacity-12">Stock</th>
                  </thead>
                  <tbody>
@@ -160,12 +160,18 @@
                     <i class="fas fa-pen text-white opacity-10"></i>
                   </a>
                 </div>
-                    </td>
-                    <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->codigo; ?></td>
+                  </td>
+                  <td>
+                    <div class="text-center">
+                      <img 
+                        src="https://static.vecteezy.com/system/resources/previews/007/481/440/non_2x/red-shopping-basket-with-products-icon-isolated-on-background-with-green-leaves-plastic-shop-cart-with-vegetables-fruit-water-healthy-food-illustration-organic-natural-concept-vector.jpg" 
+                        class="avatar avatar-sm me-3">
+                    </div>
+                  </td>
+                  <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->codigo; ?></td>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->nombre; ?></td>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->categorias; ?></td>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->precio; ?></td>
-                  <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->cantidad; ?></td>
                   <td class="text-uppercase text-dark text-xs font-weight-bolder opacity-12"><?php echo $productos->stock ?></td>
                 </tr>
                    <?php } ?> 
@@ -248,7 +254,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label>Precio por unidad</label>
+                    <label>Precio de Venta</label>
                     <input type="number" id="precio_p" class="form-control form-control-sm">
                 </div>
             </div>
@@ -262,6 +268,20 @@
             </div>
         </div>
         <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Precio proveedor</label>
+              <input type="number" id="precio_proveedor" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label>Imagen</label>
+              <input type="file" class="form-control form-control-sm">
+            </div>
+          </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Descripcion</label>
@@ -269,14 +289,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Imagen</label>
-              <input type="file" class="form-control form-control-sm">
-            </div>
-          </div>
-        </div>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="guardar_productos">Guardar</button>
@@ -414,7 +427,7 @@
                     <select id="producto_e" class="form-control form-control-sm">
                       <option  value="">Seleccione un producto</option>
                       <?php foreach($producto->result() as $productos) { ?>
-                        <option  value="<?php echo $productos->codigo; ?>"><?php echo $productos->nombre; ?></option>
+                        <option  value="<?php echo $productos->codigo_producto; ?>"><?php echo $productos->nombre; ?></option>
                       <?php }?>
                     </select>
                 </div>
@@ -488,7 +501,7 @@
                     <select id="producto_s" class="form-control form-control-sm">
                     <option  value="">Seleccione un producto</option>
                       <?php foreach($producto->result() as $productos) { ?>
-                        <option  value="<?php echo $productos->codigo; ?>"><?php echo $productos->nombre; ?></option>
+                        <option  value="<?php echo $productos->codigo_producto; ?>"><?php echo $productos->nombre; ?></option>
                       <?php }?>
                     
                     </select>
@@ -547,12 +560,19 @@
 </div>
 </div>
 </div>
-<script src="<?php echo base_url(); ?>public/js/core/popper.min.js"></script>
-  <script src="<?php echo base_url(); ?>public/js/core/bootstrap.min.js"></script>
-  <script src="<?php echo base_url(); ?>public/js/argon-dashboard.min.js?v=2.0.2"></script>
-  <script src="<?php echo base_url(); ?>public/js/jquery.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-  <script src="<?php echo base_url(); ?>public/js/datatable.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/core/popper.min.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/core/bootstrap.min.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/plugins/chartjs.min.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/argon-dashboard.min.js?v=2.0.2"></script>
+  <script src="<?php echo base_url(); ?>public/js/overhang.min.js"></script>
+  <script>
+    var baseurl = "<?php echo base_url();?>";
+  </script>
   <script src="<?php echo base_url(); ?>public/js/scripts/inventarios.js"></script>
   
 </body>
